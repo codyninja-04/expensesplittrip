@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-background text-ink antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Money should never jump width as digits change. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-[15px] text-ink outline-none transition placeholder:text-ink-faint focus:border-primary focus:ring-4 focus:ring-primary/15;
+  }
+  .label {
+    @apply mb-1.5 block text-[13px] font-medium text-ink-muted;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[15px] font-semibold transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-600;
+  }
+  .btn-secondary {
+    @apply btn border border-line bg-surface text-ink hover:bg-slate-50;
+  }
+  .btn-ghost {
+    @apply btn text-ink-muted hover:bg-slate-100 hover:text-ink;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[13px] font-medium transition active:scale-[0.97];
+  }
+}
